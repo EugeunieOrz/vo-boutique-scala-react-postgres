@@ -26,11 +26,20 @@ export const OrderStatusComponent = ({
       <Col md={2} xl={3} className="d-none d-md-flex"></Col>
       <Col xs={12} md={8} xl={6}>
         <Row id="order-status-title-row" className="py-1 d-flex flex-row justify-content-center">
-          <div id="order-status-header">
+          <div id={
+              i18n.translator.language === "ar" ?
+              "order-status-header-ar" :
+              "order-status-header"
+            }>
             {t('orderInfo')}
           </div>
         </Row>
-        <div id="order-status-msg" className="my-5 text-center">
+        <div
+          id={
+            i18n.translator.language === "ar" ?
+            "order-status-msg-ar" : "order-status-msg"
+          }
+          className="my-5 text-center">
           {
             status === "Order in processing" &&
             t('orderStatusMsg1', {orderNumber: orderNumber})

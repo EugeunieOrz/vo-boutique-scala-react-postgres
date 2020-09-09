@@ -30,21 +30,42 @@ export const OrderInfoComponent = ({
   <CoreContainer>
     <Row className="flex-grow-1">
       <Col md={2} xl={3} className="d-none d-md-flex"></Col>
-      <Col xs={12} md={8} xl={6}>
-        <Row id="orderinfo-title-row" className="py-1 d-flex flex-row justify-content-center">
-          <div id="orderinfo-header">
+      <Col xs={12} md={8} xl={6}
+        className={i18n.translator.language === "ar" ? "text-right" : ""}>
+        <Row
+          id="orderinfo-title-row"
+          className="py-1 d-flex flex-row justify-content-center">
+          <div
+            id={
+              i18n.translator.language === "ar" ?
+              "orderinfo-header-ar" : "orderinfo-header"
+            }>
             {t('orderInfo')}
           </div>
         </Row>
-        <div id="orderinfo-msg" className="my-4">
+        <div
+          id={
+            i18n.translator.language === "ar" ?
+            "orderinfo-msg-ar" : "orderinfo-msg"
+          }
+          className="my-4">
           {t('orderInfoMsg')}
         </div>
         <Form model={modelPath} onSubmit={followOrder} autoComplete="off">
           <FormControl
             className={
               form.orderNumber.touched && !form.orderNumber.valid ?
-              "followOrder-num-error-form" :
-              "followOrder-num-form"
+              (
+                i18n.translator.language === "ar" ?
+                "followOrder-num-error-form-ar" :
+                "followOrder-num-error-form"
+              )
+              :
+              (
+                i18n.translator.language === "ar" ?
+                "followOrder-num-form-ar" :
+                "followOrder-num-form"
+              )
             }
             id="orderNumber"
             formProps={form.orderNumber}
@@ -62,20 +83,38 @@ export const OrderInfoComponent = ({
             messages={{
                 isRequired:  t('enterOrderNum'),
             }}
-            wrapper={(props) => <div className="orderinfo-ordernum-error">
+            wrapper={(props) => <div className={
+              i18n.translator.language === "ar" ?
+              "orderinfo-ordernum-error-ar" :
+              "orderinfo-ordernum-error"
+            }>
             {props.children[0]}<br />{props.children[1]}</div>}
             show="focus"
           />
-         <div id="orderinfo-ordernum-error"></div>
+        <div
+          id={
+            i18n.translator.language === "ar" ?
+            "orderinfo-ordernum-error-ar" :
+            "orderinfo-ordernum-error"
+          }></div>
          <Button
            className={
              isPending ?
              (
                i18n.translator.language === "it" ?
                "mt-4 follow-order-pending-it-btn" :
-               "mt-4 follow-order-pending-btn"
-             ) :
-             "mt-4 follow-order-btn"
+               (
+                 i18n.translator.language === "ar" ?
+                 "mt-4 follow-order-pending-ar-btn" :
+                 "mt-4 follow-order-pending-btn"
+               )
+             )
+             :
+             (
+               i18n.translator.language === "ar" ?
+               "mt-4 follow-order-ar-btn" :
+               "mt-4 follow-order-btn"
+             )
            }
            type="submit"
            disabled={!form.$form.valid || isPending}>

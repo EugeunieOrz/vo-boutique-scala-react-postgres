@@ -13,7 +13,6 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
-import moment from 'moment';
 import './ReturnProduct.scss';
 
 /*
@@ -58,19 +57,35 @@ export const ReturnProductComponent = ({
     <Col md={2} xl={3} className="d-none d-md-flex"></Col>
     <Col xs={12} md={8} xl={6}>
       <Row id="return-product-title-row" className="py-1 d-flex flex-row justify-content-center">
-        <div id="return-product-header">
+        <div id={
+            i18n.translator.language === "ar" ?
+            "return-product-header-ar" :
+            "return-product-header"
+          }>
           {t('returnForm-2')}
         </div>
       </Row>
       {
         unsettled === "true" && order && order !== undefined && Object.keys(order).length !== 0 &&
-        <div id="return-product-msg1" className="my-4">
+        <div
+          id={
+            i18n.translator.language === "ar" ?
+            "return-product-msg1-ar" :
+            "return-product-msg1"
+          }
+          className="my-4">
           {t('returnForm-3')}
         </div>
       }
       {
         order && order !== undefined && Object.keys(order).length !== 0 &&
-        <div id="return-product-msg" className="my-4">
+        <div
+          id={
+            i18n.translator.language === "ar" ?
+            "return-product-msg-ar" :
+            "return-product-msg"
+          }
+          className="my-4">
           {t('returnFormMsg')}
         </div>
       }
@@ -92,8 +107,17 @@ export const ReturnProductComponent = ({
               <FormControl
                 className={
                   form.firstName.touched && !form.firstName.valid ?
-                  "returnorder-firstName-error-form" :
-                  "returnorder-firstName-form"
+                  (
+                    i18n.translator.language === "ar" ?
+                    "returnorder-firstName-error-form-ar" :
+                    "returnorder-firstName-error-form"
+                  )
+                  :
+                  (
+                    i18n.translator.language === "ar" ?
+                    "returnorder-firstName-form-ar" :
+                    "returnorder-firstName-form"
+                  )
                 }
                 id="firstName"
                 formProps={form.firstName}
@@ -113,15 +137,28 @@ export const ReturnProductComponent = ({
                     isAlpha: t('checkFirstName'),
                     isRequired: t('enterFirstName')
                 }}
-                wrapper={(props) => <div className="returnorder-fname-error">
+                wrapper={(props) => <div className={
+                  i18n.translator.language === "ar" ?
+                  "text-right returnorder-fname-error-ar" :
+                  "returnorder-fname-error"
+                }>
                   {props.children[0]}<br />{props.children[1]}</div>}
                 show="focus"
               />
               <FormControl
                 className={
                   form.lastName.touched && !form.lastName.valid ?
-                  "returnorder-lastName-error-form" :
-                  "returnorder-lastName-form"
+                  (
+                    i18n.translator.language === "ar" ?
+                    "returnorder-lastName-error-form-ar" :
+                    "returnorder-lastName-error-form"
+                  )
+                  :
+                  (
+                    i18n.translator.language === "ar" ?
+                    "returnorder-lastName-form-ar" :
+                    "returnorder-lastName-form"
+                  )
                 }
                 id="lastName"
                 formProps={form.lastName}
@@ -141,15 +178,28 @@ export const ReturnProductComponent = ({
                   isLatin: t('checkLastName'),
                   isRequired: t('enterLastName')
                 }}
-                wrapper={(props) => <div className="returnorder-lname-error">
+                wrapper={(props) => <div className={
+                  i18n.translator.language === "ar" ?
+                  "text-right returnorder-lname-error-ar" :
+                  "returnorder-lname-error"
+                }>
                   {props.children[0]}<br />{props.children[1]}</div>}
                 show="focus"
               />
               <FormControl
                 className={
                   form.email.touched && !form.email.valid ?
-                  "returnorder-email-error-form" :
-                  "returnorder-email-form"
+                  (
+                    i18n.translator.language === "ar" ?
+                    "returnorder-email-error-form-ar" :
+                    "returnorder-email-error-form"
+                  )
+                  :
+                  (
+                    i18n.translator.language === "ar" ?
+                    "returnorder-email-form-ar" :
+                    "returnorder-email-form"
+                  )
                 }
                 id="email"
                 formProps={form.email}
@@ -169,41 +219,67 @@ export const ReturnProductComponent = ({
                     isRequired:  t('enterEmail'),
                     isEmail: t('enterValidEmail')
                 }}
-                wrapper={(props) => <div className="returnorder-email-error">
+                wrapper={(props) => <div className={
+                  i18n.translator.language === "ar" ?
+                  "text-right returnorder-email-error-ar" :
+                  "returnorder-email-error"
+                }>
                   {props.children[0]}<br />{props.children[1]}</div>}
                 show="focus"
-                />
-                <FormControl
-                  className={
-                    form.telephone.touched && !form.telephone.valid ?
-                    "returnorder-telephone-error-form" :
-                    "returnorder-telephone-form"
-                  }
-                  id="telephone"
-                  formProps={form.telephone}
-                  controlProps={{
-                    type: 'text',
-                    placeholder: t('telephoneRequired'),
-                    maxLength: 255,
-                  }}
-                  validators={{
-                    isRequired,
-                  }}
-                />
-                <Errors
-                  model=".telephone"
-                  messages={{
-                    isRequired: t('enterTelephone')
-                  }}
-                  wrapper={(props) => <div className="returnorder-telephone-error">
-                    {props.children[0]}<br />{props.children[1]}</div>}
-                  show="focus"
               />
               <FormControl
                 className={
+                  form.telephone.touched && !form.telephone.valid ?
+                  (
+                    i18n.translator.language === "ar" ?
+                    "returnorder-telephone-error-form-ar" :
+                    "returnorder-telephone-error-form"
+                  )
+                  :
+                  (
+                    i18n.translator.language === "ar" ?
+                    "returnorder-telephone-form-ar" :
+                    "returnorder-telephone-form"
+                  )
+                }
+                id="telephone"
+                formProps={form.telephone}
+                controlProps={{
+                  type: 'text',
+                  placeholder: t('telephoneRequired'),
+                  maxLength: 255,
+                }}
+                validators={{
+                  isRequired,
+                }}
+              />
+              <Errors
+                model=".telephone"
+                messages={{
+                  isRequired: t('enterTelephone')
+                }}
+                wrapper={(props) => <div className={
+                  i18n.translator.language === "ar" ?
+                  "text-right returnorder-telephone-error-ar" :
+                  "returnorder-telephone-error"
+                }>
+                  {props.children[0]}<br />{props.children[1]}</div>}
+                show="focus"
+               />
+              <FormControl
+                className={
                   form.reasonForRefund.touched && !form.reasonForRefund.valid ?
-                  "returnorder-reason-error-form" :
-                  "returnorder-reason-form"
+                  (
+                    i18n.translator.language === "ar" ?
+                    "returnorder-reason-error-form-ar" :
+                    "returnorder-reason-error-form"
+                  )
+                  :
+                  (
+                    i18n.translator.language === "ar" ?
+                    "returnorder-reason-form-ar" :
+                    "returnorder-reason-form"
+                  )
                 }
                 id="reasonForRefund"
                 formProps={form.reasonForRefund}
@@ -221,7 +297,11 @@ export const ReturnProductComponent = ({
                 messages={{
                   isRequired: t('enterReasonForRefund')
                 }}
-                wrapper={(props) => <div className="returnorder-reason-error">
+                wrapper={(props) => <div className={
+                  i18n.translator.language === "ar" ?
+                  "text-right returnorder-reason-error-ar" :
+                  "returnorder-reason-error"
+                }>
                   {props.children[0]}<br />{props.children[1]}</div>}
                 show="focus"
                />
@@ -258,7 +338,11 @@ export const ReturnProductComponent = ({
                               />
                         }
                       </Col>
-                      <Col xs={3} sm={2}>
+                      <Col xs={3} sm={2} dir="ltr"
+                        className={
+                          i18n.translator.language === "ar" ?
+                          "text-right" : ""
+                        }>
                         <div id="returnproduct-purchase-date">
                           {new Date(order.dateTime).getDate() + ' / ' +
                            (new Date(order.dateTime).getMonth()+1) + ' / ' +
@@ -279,14 +363,19 @@ export const ReturnProductComponent = ({
                           height="160"
                         />
                       </Col>
-                      <Col xs={12} sm={5}>
-                        <div id="returnproduct-item-name">{addedItem.name}</div>
-                        <div id="returnproduct-item-qty">{t('itemQty', {itemQty: size.quantity})}</div>
-                        <div id="returnproduct-item-size">{t('itemSize', {itemSize: size.number})}</div>
-                        <div id="returnproduct-item-color">{t('itemColor', {itemColor: addedItem.color.color})}</div>
-                        <div id="returnproduct-item-price">
+                      <Col xs={12} sm={5}
+                        className={
+                          i18n.translator.language === "ar" ?
+                          "text-right returnproduct-attributes-ar" :
+                          "returnproduct-attributes"
+                        }>
+                        <p>{addedItem.name}</p>
+                        <p className="mb-0">{t('itemQty', {itemQty: size.quantity})}</p>
+                        <p className="mb-0">{t('itemSize', {itemSize: size.number})}</p>
+                        <p>{t('itemColor', {itemColor: addedItem.color.color})}</p>
+                        <p>
                           {addedItem.currency + " " + formatNum(addedItem.price)}
-                        </div>
+                        </p>
                       </Col>
                     </Row>
                   )
@@ -300,9 +389,17 @@ export const ReturnProductComponent = ({
               (
                 i18n.translator.language === "it" ?
                 "returnorder-pending-it-btn" :
-                "returnorder-btn"
+                (
+                  i18n.translator.language === "ar" ?
+                  "returnorder-pending-ar-btn" :
+                  "returnorder-btn"
+                )
               ) :
-              "returnorder-btn"
+              (
+                i18n.translator.language === "ar" ?
+                "returnorder-ar-btn" :
+                "returnorder-btn"
+              )
             }
             className="align-self-center mt-4"
             type="submit"
@@ -312,19 +409,28 @@ export const ReturnProductComponent = ({
          </Form>
         :
         <Row className="my-4 d-flex flex-column align-items-center">
-          <div id="return-form-error-msg" className="mb-4">
+          <div
+            id={
+              i18n.translator.language === "ar" ?
+              "return-form-error-msg-ar" :
+              "return-form-error-msg"
+            }
+            className="mb-4">
             {t('The Page you are looking for could not be found.')}
           </div>
-          {
-            userID ?
-            <Link id="back-to-return-form" to={config.route.account.returns}>
-              <Trans>Back To Return Form</Trans>
-            </Link>
-            :
-            <Link id="back-to-return-form" to={config.route.home.returns}>
-              <Trans>Back To Return Form</Trans>
-            </Link>
-          }
+          <Link
+            id={
+              i18n.translator.language === "ar" ?
+              "back-to-return-form-ar" :
+              "back-to-return-form"
+            }
+            to={
+              userID ?
+              config.route.account.returns :
+              config.route.home.returns
+            }>
+            <Trans>Back To Return Form</Trans>
+          </Link>
         </Row>
       }
     </Col>
