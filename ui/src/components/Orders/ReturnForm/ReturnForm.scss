@@ -1,0 +1,55 @@
+/*
+Author: Ievgeniia Ozirna
+Licensed under the CC BY-NC-ND 3.0: http://creativecommons.org/licenses/by-nc-nd/3.0/
+*/
+@import 'styles/app.scss';
+@import 'styles/Acme.scss';
+#return-form-header,
+#return-form-msg {
+  font-family: $fontAcme;
+  color: $text-color
+}
+.returnform-num-error-form,
+.returnform-num-form {
+  color: $text-color;
+  box-shadow: none !important;
+  background: transparent !important
+}
+#return-order-num-error,
+.return-ordernum-error {
+  font-family: $fontAcme;
+  color: $vo-color
+}
+#fill-return-form-pending-it-btn {
+  width: 250px
+}
+#fill-return-form-btn {
+  width: 170px
+}
+#fill-return-form-pending-it-btn,
+#fill-return-form-btn {
+  background: $gradient-border-color;
+  border-radius: 0;
+  box-shadow: none !important;
+  border: 0.15em solid $gradient-border-color;
+  color: $text-color;
+  font-family: $fontAcme;
+}
+.fill-return-form-pending-it-btn:hover,
+.fill-return-form-pending-it-btn:focus,
+.fill-return-form-pending-it-btn:active,
+.fill-return-form-btn:hover,
+.fill-return-form-btn:focus,
+.fill-return-form-btn:active {
+  background: transparent;
+  border-color: $gradient-border-color !important;
+  color: $text-color !important;
+}
+#fill-return-form-pending-it-btn:enabled,
+#fill-return-form-btn:enabled {
+  cursor: url('../../../static/rose-33.png'),auto!important;
+}
+#fill-return-form-pending-it-btn:disabled,
+#fill-return-form-btn:disabled {
+  cursor: url('../../../static/icons/close.svg'),auto!important;
+}
