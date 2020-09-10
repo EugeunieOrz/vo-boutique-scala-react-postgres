@@ -6,8 +6,6 @@ export const initialState = {
   model: {},
 };
 
-export const proceedToMyAccount = createAction('PROCEED_TO_MY_ACCOUNT');
-
 export const fetchUser = createAction('FETCH_USER');
 export const fetchUserPending = createAction('FETCH_USER_PENDING');
 export const fetchUserFulfilled = createAction('FETCH_USER_FULFILLED');

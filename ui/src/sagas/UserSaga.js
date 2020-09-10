@@ -166,13 +166,11 @@ export function* signOutUserWorker(api: UserAPI): Generator<*, *, *> {
     try {
       yield call([api, api.signOut]);
       yield put(resetUserState());
-      yield call(history.push, config.route.auth.signOut);
     } catch (e) {
       console.log(e);
       yield call(handleError, e, {
         'auth.unauthorized': () => ([
-          put(resetUserState()),
-          call(history.push, config.route.auth.signOut)
+          put(resetUserState())
         ]),
       });
     }

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import lifecycle from 'components/Lifecycle';
+import { closeMenu } from 'modules/Menu/MenuModule';
 import { getUserFirstName } from 'selectors/UserSelector';
 import { toggleClosingAccount } from 'bundles/Account/modules/AccountDetails/ClosingAccountModule';
 import AccountDashboard from 'bundles/Account/components/AccountDashboard';
@@ -33,6 +34,7 @@ const mapStateToProps = state => ({
  * @returns {Object} The props passed to the react component.
  */
 const mapDispatchToProps = (dispatch) => ({
+  componentDidMount: () => dispatch(closeMenu()),
   toggleClosingAccount: () => dispatch(toggleClosingAccount()),
 });
 

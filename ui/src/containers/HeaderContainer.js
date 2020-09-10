@@ -58,7 +58,7 @@ const mapDispatchToProps = dispatch => ({
   showLanguages: () => dispatch(showLanguages()),
   route: route => history.push(route),
   onSignOut: () => dispatch(signOutUser()),
-  openMyWishlist: data => dispatch(openMyWishlist(data)),
+  openMyWishlist: () => dispatch(openMyWishlist()),
   toggleFashionMenu: () => dispatch(toggleFashionMenu()),
   toggleFineJewelryMenu: () => dispatch(toggleFineJewelryMenu()),
   toggleHomeCollectionMenu: () => dispatch(toggleHomeCollectionMenu()),

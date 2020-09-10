@@ -59,7 +59,7 @@ type Props = {
   toggleMenu: () => any,
   menuIsShown: boolean,
   shippingCountryListIsShown: boolean,
-  openMyWishlist: (menuIsShown: boolean) => any,
+  openMyWishlist: () => any,
   openSignInW: (menuIsShown: boolean) => any,
   menuIsShown: boolean,
 };
@@ -168,7 +168,7 @@ export const HeaderComponent = ({
           </Nav.Link>
           <Nav.Link onClick={
               userID !== undefined ?
-              () => openMyWishlist(menuIsShown) :
+              () => openMyWishlist() :
               () => openSignInW(menuIsShown)
             }>
             <Trans>WISH LIST</Trans>
@@ -187,7 +187,7 @@ export const HeaderComponent = ({
               "lang-dropdown-ar" :
               "lang-dropdown"
             }
-            className="ml-2" 
+            className="ml-2"
             onClick={() => showLanguages()}>
             <span>
               {

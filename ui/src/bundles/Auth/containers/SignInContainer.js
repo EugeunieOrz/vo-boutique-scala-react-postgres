@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import { actions } from 'react-redux-form';
-import { history } from 'modules/LocationModule';
 import lifecycle from 'components/Lifecycle';
+import { history } from 'modules/LocationModule';
+import { closeMenu } from 'modules/Menu/MenuModule';
 import { modelPath, signIn } from 'bundles/Auth/modules/SignInModule';
 import { getShoppingBag } from 'selectors/ShoppingSelector';
 import SignIn from 'bundles/Auth/components/SignIn';
@@ -26,6 +27,7 @@ const mapStateToProps = state => ({
  */
 const mapDispatchToProps = dispatch => ({
   onSignIn: data => dispatch(signIn(data)),
+  componentDidMount: () => dispatch(closeMenu()),
   componentWillUnmount: () => dispatch(actions.reset(modelPath)),
   route: route => history.push(route),
 });

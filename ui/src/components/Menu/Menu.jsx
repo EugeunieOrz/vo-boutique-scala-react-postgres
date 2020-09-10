@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import config from 'config/index';
 import { withTranslation, Trans } from "react-i18next";
 import LanguageSelectorContainer from 'containers/LanguageCountry/LanguageSelectorContainer';
 import Container from 'react-bootstrap/Container';
@@ -61,10 +62,10 @@ type Props = {
   innerDecorateOnToggle2: (currentKey: string, id: string) => any,
   changeLanguage: (lang: string) => any,
   selectFashionCategory: (categoryLink: string) => any,
-  proceedToMyAccount: (userID: string) => any,
-  openMyWishlist: (menuIsShown: boolean) => any,
+  openMyWishlist: () => any,
   openSignInW: (menuIsShown: boolean) => any,
   menuIsShown: boolean,
+  route: (value: string) => any,
   userID: string,
 }
 
@@ -76,7 +77,7 @@ export const MenuComponent = ({
   decorateOnToggle, currentKey, innerDecorateOnToggle, currentInnerKey,
   innerDecorateOnToggle2, currentInnerKey2, changeLanguage,
   openClientServicePage, openStoreLocatorPage, selectFashionCategory,
-  proceedToMyAccount, userID,
+  userID, route,
   menuIsShown, openMyWishlist, openSignInW,
 }: Props) => (
   <Container
@@ -322,7 +323,11 @@ export const MenuComponent = ({
           }>
         </div>
         <Nav.Item className="mb-3 d-flex align-items-center menu-link-sm"
-          onClick={() => proceedToMyAccount(userID)}>
+          onClick={
+            userID !== undefined ?
+            () => route(config.route.account.index) :
+            () => route(config.route.auth.index)
+          }>
           <Image src={accountIcon} width="16" height="16" alt="Account" />
           <div className={
               i18n.translator.language === "ar" ? "mr-2 menu-link-sm-ar" : "ml-2"
@@ -332,7 +337,7 @@ export const MenuComponent = ({
           className="mb-3 d-flex align-items-center menu-link-sm"
           onClick={
             userID !== undefined ?
-            () => openMyWishlist(menuIsShown) :
+            () => openMyWishlist() :
             () => openSignInW(menuIsShown)
           }>
           <Image src={wishlistIcon} width="16" height="16" alt="Account" />

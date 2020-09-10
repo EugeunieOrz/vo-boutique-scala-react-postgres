@@ -11,22 +11,11 @@ Author: Ievgeniia Ozirna
 Licensed under the CC BY-NC-ND 3.0: http://creativecommons.org/licenses/by-nc-nd/3.0/
 */
 export function* openMyWishlistSaga(): Generator<*, *, *> {
-  while (true) {
-    const { payload } = yield take(openMyWishlist().type);
+  while (yield take(openMyWishlist().type)) {
     try {
-      if(payload) {
-        yield put(closeMenu());
-        yield put(toggleProfileActiveKey("wishlist"));
-        if(sessionStorage.productID) {
-          const id = sessionStorage.getItem('productID');
-          yield call(history.push, `${config.route.account.index}/${id}`);
-        } else {
-          yield call(history.push, config.route.account.index);
-        }
-      } else {
-        yield put(toggleProfileActiveKey("wishlist"));
-        yield call(history.push, config.route.account.index);
-      }
+      yield put(closeMenu());
+      yield call(history.push, config.route.account.index);
+      yield put(toggleProfileActiveKey("wishlist"));
     } catch (e) {
       yield call(handleError, e);
     }

@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
+import config from 'config/index';
 
 import './AddItemToBagAlert.scss';
 
@@ -73,7 +74,11 @@ export const AddItemToBagAlertComponent = ({
           <Button
             className="mt-0 mt-sm-2 mb-2 align-self-start"
             id={i18n.translator.language === "ar" ? "view-bag-ar" : "view-bag"}
-            onClick={() => proceedToShoppingBag(userID)}>
+            onClick={
+              userID !== undefined ?
+              () => route(config.route.account.shopping) :
+              () => route(config.route.home.shopping)
+            }>
             {t('VIEW SHOPPING BAG')}
           </Button>
         </Col>

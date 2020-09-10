@@ -13,9 +13,9 @@ import './PageFooter.scss';
  */
 
 type Props = {
+  country: string,
   i18n: Object,
   t: Object,
-  country: string,
   toggleShippingCountryList: () => any,
   toggleSubscribeToNewsletter: () => any,
 };
@@ -23,7 +23,7 @@ type Props = {
 const year = new Date().getFullYear();
 
 export const PageFooterComponent = ({
-  i18n, t, country, toggleShippingCountryList, toggleSubscribeToNewsletter,
+  country, i18n, t, toggleShippingCountryList, toggleSubscribeToNewsletter,
 }: Props) => (
   <Navbar
     className="d-none d-lg-flex justify-content-between align-items-baseline"

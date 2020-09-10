@@ -36,7 +36,6 @@ const config = {
       passwordRecovery: '/auth/password/recovery',
       emailSent: '/auth/password/recovery/email/sent',
       alreadyInUse: '/auth/already/registered',
-      signOut: '/auth/sign-out',
       passwordSurvey: '/auth/password/survey',
       changedPassword: '/auth/changed/password',
     },

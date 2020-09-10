@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import lifecycle from 'components/Lifecycle';
 import { history } from 'modules/LocationModule';
+import { closeMiniBagEtc } from 'modules/Shopping/MiniBagModule';
 import {
   changeSizeInGuestShoppingBag,
   changeQtyInGuestShoppingBag,
@@ -36,6 +37,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   changeSizeInShoppingBag: (data) => dispatch(changeSizeInShoppingBag(data)),
   changeQtyInShoppingBag: (data) => dispatch(changeQtyInShoppingBag(data)),
+  componentDidMount: () => dispatch(closeMiniBagEtc()),
   removeItemFromShoppingBag: (data) => dispatch(removeItemFromShoppingBag(data)),
   changeSizeInGuestShoppingBag: (data) => dispatch(changeSizeInGuestShoppingBag(data)),
   changeQtyInGuestShoppingBag: (data) => dispatch(changeQtyInGuestShoppingBag(data)),

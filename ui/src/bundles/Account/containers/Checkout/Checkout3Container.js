@@ -2,10 +2,10 @@ import { connect } from 'react-redux';
 import { actions } from 'react-redux-form';
 import lifecycle from 'components/Lifecycle';
 import { modelPath3, fillCheckoutData3} from 'bundles/Account/modules/Checkout3/CheckoutForm3Module';
-import { countryByIP, getUserCountryByIPforHome } from 'selectors/GeolocationSelector';
 import { toggleAddNewCard } from 'bundles/Account/modules/CreditCards/AddNewCardModule';
 import { toggleEditCard } from 'bundles/Account/modules/CreditCards/EditCardModule';
 import { chooseCreditCard } from 'bundles/Account/modules/CreditCards/CreditCardModule';
+import { getCountry } from 'selectors/LocationSelector';
 import { getUserID, getCardWallet } from 'selectors/UserSelector';
 import Checkout3 from 'bundles/Account/components/Checkout3';
 
@@ -16,11 +16,10 @@ import Checkout3 from 'bundles/Account/components/Checkout3';
  * @returns {Object} The props passed to the react component.
  */
  const mapStateToProps = state => ({
+   countryByIP: getCountry(),
    addNewCardIsShown: state.account.toggleAddNewCard.isShown,
    index: state.account.toggleEditAddress.index,
    userID: getUserID(state),
-   countryByIP: getUserCountryByIPforHome(state),
-   countryByIP2: countryByIP(state),
    cards: getCardWallet(state),
    creditCard: state.account.chooseCreditCard.index,
    form3: state.account.fillCheckoutData3.form3,
@@ -32,7 +31,7 @@ import Checkout3 from 'bundles/Account/components/Checkout3';
      address: '',
      zipCode: '',
      city: '',
-     country: countryByIP(state),
+     country: '',
      province: '',
      email: '',
      telephone: '',
