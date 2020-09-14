@@ -23,6 +23,7 @@ Promo:
 * Transactions are done through sandbox account of Authorize.Net.
 * Responsive with Bootstrap.
 * English, Italian, Arabic versions.
+* Arabic (mirror-like) design
 
 Website is divided into backend written in Scala using Play framework and PostgreSQL persistence layer with Slick
 and frontend written in React.js using Redux for managing state.
